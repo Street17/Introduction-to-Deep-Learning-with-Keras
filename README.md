@@ -1,6 +1,5 @@
 # Introduction-to-Deep-Learning-with-Keras
 
-This post is about Keras, one of the frameworks that make it easier to start developing deep learning models, and is versatile enough to build industry-ready models in no time.
 
 In order to learn Keras better we will set-up an exercise we are going to solve in this post. 
 
