@@ -1,0 +1,53 @@
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+model = Sequential()
+#This code creates a Sequential model in TensorFlow using the Sequential class from the tensorflow.keras.models module. 
+
+model.add(Dense(10, input_shape=(2,), activation="relu"))
+#In this case, the model has two layers. The first layer is a Dense layer with 10 units, which means it has 10 neurons. This layer also has an input shape of (2,) which means it expects 2-dimensional input data. The input_shape argument specifies the shape of the input data that the model will receive. The activation function for this layer is "relu", which stands for "rectified linear unit". This is a common activation function used in neural networks.
+ 
+model.add(Dense(1))
+#The second layer is also a Dense layer, but it has only 1 unit, which means it has only 1 neuron. This layer does not have an activation function specified, so it will use the default activation function, which is the identity function.
+ 
+model.summary()
+#The summary method provides a summary of the model, including the number of layers, the number of parameters in each layer, and the shape of the output of each layer. This can be helpful for understanding the structure of the model and for debugging.
+
+
+model = Sequential()
+model.add(Dense(50, input_shape=(1,), activation='relu'))
+#This code creates a Sequential model in Keras, which is a model that consists of a linear stack of layers. The model starts with a single Dense layer that has 50 neutrons and an input shape of 1 neuron. This means that the layer will expect to receive input data with a single feature.
+
+model.add(Dense(50, activation='relu'))
+model.add(Dense(50, activation='relu'))
+#The model then adds two more Dense layers, each with 50 neurons and a relu activation function. The relu activation function is a common choice for neural networks because it helps to introduce non-linearity into the model, which can improve its ability to learn complex patterns in the data.
+
+model.add(Dense(1))
+#This is a common choice for regression tasks, as it allows the model to output a continuous value rather than a probability.
+With this architecture, the model will have a total of 4 layers, and each layer will be fully connected to the previous and subsequent layers. This means that every neuron in a given layer is connected to every neuron in the previous and next layers.
+Now we will compile our model:
+
+model.compile(optimizer="adam", loss="mse")
+print("Training started..., this can take a while:")
+#In this code, the model is compiled using the compile method. The optimizer is added for updating the model's weights based on the gradient of the loss function, and the loss function is added to see how well the model is performing.
+
+
+model.fit(time_steps, y_positions, epochs=30)
+#Post model compilation, it is fit to the data using the fit method. This method takes the input data (time_steps) and the corresponding labels (y_positions) as arguments, as well as the number of epochs to train for (30 here). 
+print("Final loss value:",model.evaluate(time_steps, y_positions))
+
+#The model.predict method is used to make predictions with the model. It takes an array of input data and returns an array of predictions. In this case, the input data is created using the np.arange function from NumPy, which creates an array of evenly spaced values between -10 and 11 (inclusive).
+twenty_min_orbit = model.predict(np.arange(-10, 11))
+
+#The plot_orbit function is called with the predictions as an argument.
+plot_orbit(twenty_min_orbit)
+
+#Next, we will predict the 80 minutes orbit
+eighty_min_orbit = model.predict(np.arange(-40, 41))
+
+#The plot_orbit function is called with the predictions as an argument.
+plot_orbit(eighty_min_orbit)
+
+
+
+
+
